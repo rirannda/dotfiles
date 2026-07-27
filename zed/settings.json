@@ -1,0 +1,74 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "ui_font_family": ".ZedSans",
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "git_panel": {
+    "dock": "left"
+  },
+  "prettier": {
+    "allowed": true
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+    "anthropic_retention": false
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "terminal": {
+    "env": {},
+    "font_family": "Hack Nerd Font Mono",
+    "font_fallbacks": [
+      "Monospace"
+    ]
+  },
+  "project_panel": {
+    "dock": "left",
+    "auto_fold_dirs": false
+  },
+  "base_keymap": "VSCode",
+  "minimap": {
+    "show": "always"
+  },
+  "autosave": "on_focus_change",
+  "buffer_font_fallbacks": [
+    "Noto Sans mono CJK JP",
+    "monospace"
+  ],
+  "buffer_font_family": "Hack Nerd Font Mono",
+  "auto_indent_on_paste": true,
+  "linked_edits": true,
+  "format_on_save": "on",
+  "soft_wrap": "editor_width",
+  "tab_size": 2,
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "VSCode Icons for Zed (Dark Official Icons)"
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "One Dark",
+  },
+}
