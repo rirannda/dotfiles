@@ -8,6 +8,7 @@
 alias ls='eza --icons auto'
 alias grep='grep --color=auto'
 alias cd=z
+alias zed=zeditor
 
 PS1='[\u@\h \W]\$ '
 

@@ -1,8 +1,10 @@
+brave-bin
 brave-origin-bin
+claude-code
 cloudflare-warp-bin
 curseforge
-cursor-bin
 distro-grub-themes-arch
+fcitx5-mozc-debug
 foxitreader
 fsearch
 grub-customizer
@@ -13,7 +15,9 @@ nerd-fonts-noto-sans-mono
 nomacs
 obsidian-bin
 opentabletdriver
+python312
 python313
+qdirstat
 realvnc-vnc-viewer
 rstudio-desktop-bin
 sddm-conf

@@ -44,6 +44,7 @@ cp "$DOTFILES_DIR/.zprofile" "$HOME/"
 
 echo "Copying .zshrc to $HOME/"
 cp "$DOTFILES_DIR/.zshrc" "$HOME/"
+source "$HOME/.zshrc"
 
 echo "Copying starship to $CONFIG_DIR/"
 cp "$DOTFILES_DIR/starship/starship.toml" "$CONFIG_DIR/"

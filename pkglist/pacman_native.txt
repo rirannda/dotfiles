@@ -165,6 +165,7 @@ xorg-xhost
 xorg-xinit
 xournalpp
 yazi
+zed
 zoxide
 zsh
 zsh-autosuggestions
