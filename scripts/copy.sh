@@ -16,6 +16,7 @@ cp "$CONFIG_DIR/waybar/" ./ -r
 cp "$CONFIG_DIR/wofi/" ./ -r
 cp "$CONFIG_DIR/wlogout/" ./ -r
 cp "$CONFIG_DIR/fcitx5/" ./ -r
+cp "$CONFIG_DIR/zed/" ./ -r
 
 pacman -Qqen > ./pkglist/pacman_native.txt
 

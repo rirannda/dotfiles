@@ -49,7 +49,7 @@ source "$HOME/.zshrc"
 echo "Copying starship to $CONFIG_DIR/"
 cp "$DOTFILES_DIR/starship/starship.toml" "$CONFIG_DIR/"
 
-for app in hypr kitty nvim quickshell waybar wofi wlogout ; do
+for app in hypr kitty nvim quickshell waybar wofi wlogout zed ; do
   if [ -d "$DOTFILES_DIR/$app" ]; then
     echo "Copying $app to $CONFIG_DIR/"
     sudo rm -rf "$CONFIG_DIR/$app"
