@@ -1,0 +1,7 @@
+module qs.Modules.Bar.Widgets.SystemTray
+
+SystemTray 1.0 SystemTray.qml
+TrayItem 1.0 TrayItem.qml
+TrayMenu 1.0 TrayMenu.qml
+DiscordTrayButton 1.0 DiscordTrayButton.qml
+DiscordTrayMenu 1.0 DiscordTrayMenu.qml

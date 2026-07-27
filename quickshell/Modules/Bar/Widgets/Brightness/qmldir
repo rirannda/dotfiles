@@ -1,0 +1,4 @@
+module qs.Modules.Bar.Widgets.Brightness
+
+Brightness 1.0 Brightness.qml
+BrightnessIndicator 1.0 BrightnessIndicator.qml

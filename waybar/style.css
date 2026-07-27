@@ -1,0 +1,189 @@
+* {
+    font-family: "Noto Sans CJK JP","JetBrains Mono Nerd Font","Noto Sans Mono CJK JP","NotoSans Nerd Font","Noto Sans";
+    font-size: 15px;
+}
+
+window#waybar {
+    background-color: rgba(43, 48, 59, 0.5);
+    transition-property: background-color;
+    color: #ffffff;
+}
+
+/* Workspaces */
+#workspaces {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 8px;
+  margin: 2px 4px;
+  border-radius: 20px;
+}
+
+#workspaces button {
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  padding: 0 6px;
+}
+
+#custom-volume, #backlight, #custom-bt, #custom-ROG {
+    padding: 0 8px;
+}
+
+#tray {
+    padding: 0 8px;
+}
+
+#clock {
+    padding: 0 8px;
+}
+
+#battery {
+    padding: 0 8px;
+}
+
+#custom-power {
+    padding: 0 8px;
+    margin-right: 10px;
+}
+
+/* Grouped modules with ellipse/rounded background */
+/* Media player controls - grouped as one ellipse */
+#custom-media-prev {
+    padding: 4px 8px 4px 16px;
+    margin: 2px 0px;
+    margin-left: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px 0 0 20px;
+    color: #ffffff;
+}
+
+#custom-media-prev:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#custom-media-prev.playing {
+    background: rgba(166, 227, 161, 0.2);
+    color: #a6e3a1;
+}
+
+#custom-media-prev.paused {
+    background: rgba(250, 179, 135, 0.2);
+    color: #fab387;
+}
+
+#custom-media-prev.stopped {
+    background: rgba(108, 112, 134, 0.2);
+    color: #6c7086;
+}
+
+#custom-media-play {
+    padding: 4px 8px;
+    margin: 2px 0px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+#custom-media-play.playing {
+    background: rgba(166, 227, 161, 0.2);
+    color: #a6e3a1;
+}
+
+#custom-media-play.paused {
+    background: rgba(250, 179, 135, 0.2);
+    color: #fab387;
+}
+
+#custom-media-play.stopped {
+    background: rgba(108, 112, 134, 0.2);
+    color: #6c7086;
+}
+
+#custom-media-next {
+    padding: 4px 8px;
+    margin: 2px 0px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+#custom-media-next:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#custom-media-next.playing {
+    background: rgba(166, 227, 161, 0.2);
+    color: #a6e3a1;
+}
+
+#custom-media-next.paused {
+    background: rgba(250, 179, 135, 0.2);
+    color: #fab387;
+}
+
+#custom-media-next.stopped {
+    background: rgba(108, 112, 134, 0.2);
+    color: #6c7086;
+}
+
+#custom-media-title {
+    padding: 4px 16px 4px 8px;
+    margin: 2px 0px;
+    margin-right: 20px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0 20px 20px 0;
+    color: #ffffff;
+}
+
+#custom-media-title.playing {
+    background: rgba(166, 227, 161, 0.2);
+    color: #a6e3a1;
+}
+
+#custom-media-title.paused {
+    background: rgba(250, 179, 135, 0.2);
+    color: #fab387;
+}
+
+#custom-media-title.stopped {
+    background: rgba(108, 112, 134, 0.2);
+    color: #6c7086;
+}
+
+#window {
+    padding: 4px 16px;
+    margin: 2px 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+/* CPU, Temperature, Memory, Network group - connected as one ellipse */
+#cpu {
+    padding: 4px;
+    margin: 2px 0px;
+    margin-left: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px 0 0 20px;
+}
+
+#temperature {
+    padding: 4px 2px;
+    margin: 2px 0px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#memory {
+    padding: 4px 2px;
+    margin: 2px 0px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#network {
+    padding: 4px 10px 4px 4px;
+    margin: 2px 0px;
+    margin-right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0 20px 20px 0;
+}
