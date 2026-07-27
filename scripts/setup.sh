@@ -51,10 +51,13 @@ cp "$DOTFILES_DIR/starship/starship.toml" "$CONFIG_DIR/"
 for app in hypr kitty nvim quickshell waybar wofi wlogout ; do
   if [ -d "$DOTFILES_DIR/$app" ]; then
     echo "Copying $app to $CONFIG_DIR/"
-    rm -rf "$CONFIG_DIR/$app"
-    cp -r "$DOTFILES_DIR/$app" "$CONFIG_DIR/"
+    sudo rm -rf "$CONFIG_DIR/$app"
+    sudo cp -r "$DOTFILES_DIR/$app" "$CONFIG_DIR/"
   fi
 done
+
+echo "Reloading Hyprland"
+hyprctl reload
 
 # ---------------------------------------------------
 # 4. Set default shell to Zsh
