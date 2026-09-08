@@ -86,7 +86,6 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd(
 		'brave-origin --profile-directory="Profile 1" --app="https://tasks.google.com/embed/list/~default" --class="google-tasks-pwa"'
 	)
-	hl.exec_cmd("kitty")
 end)
 
 -------------------------------
