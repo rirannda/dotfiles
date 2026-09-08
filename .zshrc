@@ -218,3 +218,12 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # 強力な補完機能を有効化
 autoload -Uz compinit
 compinit
+
+# Home / End キーの設定
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+bindkey "^[OH" beginning-of-line
+bindkey "^[OF" end-of-line
+
+# Delete キーの設定（必要に応じて）
+bindkey "^[[3~" delete-char
