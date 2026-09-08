@@ -30,7 +30,6 @@ docker
 efibootmgr
 efitools
 element-desktop
-emacs-wayland
 emptty
 ex-vi-compat
 eza

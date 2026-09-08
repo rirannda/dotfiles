@@ -3,14 +3,13 @@ brave-origin-bin
 claude-code
 cloudflare-warp-bin
 curseforge
+davinci-resolve
 distro-grub-themes-arch
 fcitx5-mozc-debug
-foxitreader
 fsearch
 grub-customizer
 grub-theme-asus-tuf
 hyprshot-git
-neofetch
 nerd-fonts-noto-sans-mono
 nomacs
 obsidian-bin
@@ -18,6 +17,7 @@ opentabletdriver
 python312
 python313
 qdirstat
+qdiskinfo-bin
 realvnc-vnc-viewer
 rstudio-desktop-bin
 sddm-conf
@@ -30,6 +30,5 @@ ttf-symbola
 ttf-twemoji
 typora
 ventoy-bin
-visual-studio-code-bin
 wlogout
 yay
