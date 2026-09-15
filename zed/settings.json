@@ -36,9 +36,7 @@
   "terminal": {
     "env": {},
     "font_family": "Hack Nerd Font Mono",
-    "font_fallbacks": [
-      "Monospace"
-    ]
+    "font_fallbacks": ["Monospace"]
   },
   "project_panel": {
     "dock": "left",
@@ -49,10 +47,7 @@
     "show": "always"
   },
   "autosave": "on_focus_change",
-  "buffer_font_fallbacks": [
-    "Noto Sans mono CJK JP",
-    "monospace"
-  ],
+  "buffer_font_fallbacks": ["Noto Sans mono CJK JP", "monospace"],
   "buffer_font_family": "Hack Nerd Font Mono",
   "auto_indent_on_paste": true,
   "linked_edits": true,
@@ -69,6 +64,14 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "One Dark",
+    "dark": "One Dark"
   },
+  "lsp": {
+    "tinymist": {
+      "settings": {
+        "exportPdf": "onSave",
+        "outputPath": "$root/$dir/$name"
+      }
+    }
+  }
 }

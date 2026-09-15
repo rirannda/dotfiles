@@ -13,6 +13,7 @@ hyprshot-git
 nerd-fonts-noto-sans-mono
 nomacs
 obsidian-bin
+openai-codex-bin
 opentabletdriver
 python312
 python313
