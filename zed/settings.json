@@ -36,7 +36,7 @@
   "terminal": {
     "env": {},
     "font_family": "Hack Nerd Font Mono",
-    "font_fallbacks": ["Monospace"],
+    "font_fallbacks": ["Noto Sans Mono CJK JP"],
   },
   "project_panel": {
     "dock": "left",
@@ -51,7 +51,7 @@
       "milliseconds": 500,
     },
   },
-  "buffer_font_fallbacks": ["Noto Sans mono CJK JP", "monospace"],
+  "buffer_font_fallbacks": ["Noto Sans Mono CJK JP"],
   "buffer_font_family": "Hack Nerd Font Mono",
   "auto_indent_on_paste": true,
   "linked_edits": true,
