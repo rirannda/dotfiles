@@ -9,44 +9,48 @@
 {
   "ui_font_family": ".ZedSans",
   "outline_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "collaboration_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "agent": {
     "dock": "right",
     "favorite_models": [],
-    "model_parameters": []
+    "model_parameters": [],
   },
   "git_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "prettier": {
-    "allowed": true
+    "allowed": true,
   },
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
-    "anthropic_retention": false
+    "anthropic_retention": false,
   },
   "session": {
-    "trust_all_worktrees": true
+    "trust_all_worktrees": true,
   },
   "terminal": {
     "env": {},
     "font_family": "Hack Nerd Font Mono",
-    "font_fallbacks": ["Monospace"]
+    "font_fallbacks": ["Monospace"],
   },
   "project_panel": {
     "dock": "left",
-    "auto_fold_dirs": false
+    "auto_fold_dirs": false,
   },
   "base_keymap": "VSCode",
   "minimap": {
-    "show": "always"
+    "show": "always",
   },
-  "autosave": "on_focus_change",
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 500,
+    },
+  },
   "buffer_font_fallbacks": ["Noto Sans mono CJK JP", "monospace"],
   "buffer_font_family": "Hack Nerd Font Mono",
   "auto_indent_on_paste": true,
@@ -57,21 +61,21 @@
   "icon_theme": {
     "mode": "dark",
     "light": "Zed (Default)",
-    "dark": "VSCode Icons for Zed (Dark Official Icons)"
+    "dark": "VSCode Icons for Zed (Dark Official Icons)",
   },
   "ui_font_size": 16,
   "buffer_font_size": 15,
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "One Dark"
+    "dark": "One Dark",
   },
   "lsp": {
     "tinymist": {
       "settings": {
         "exportPdf": "onSave",
-        "outputPath": "$root/$dir/$name"
-      }
-    }
-  }
+        "outputPath": "$root/$dir/$name",
+      },
+    },
+  },
 }

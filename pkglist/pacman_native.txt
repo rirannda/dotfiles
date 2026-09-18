@@ -128,12 +128,14 @@ texlive-langjapanese
 texlive-latexextra
 thefuck
 thunar
+tinymist
 tree
 ttf-hack-nerd
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
 ttf-noto-nerd
 tumbler
+typst
 uv
 uwsm
 vim
@@ -164,6 +166,8 @@ xorg-xhost
 xorg-xinit
 xournalpp
 yazi
+zathura
+zathura-pdf-mupdf
 zed
 zoxide
 zsh
