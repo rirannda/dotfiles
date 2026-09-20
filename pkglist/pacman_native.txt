@@ -107,6 +107,7 @@ powertop
 python-bleak
 python-pip
 qt5-wayland
+qt6-languageserver
 quickshell
 reflector
 rog-control-center

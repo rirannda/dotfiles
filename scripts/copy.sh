@@ -11,6 +11,7 @@ cp "$CONFIG_DIR/starship.toml" ./starship/
 cp "$CONFIG_DIR/hypr/" ./ -r
 cp "$CONFIG_DIR/kitty/" ./ -r
 cp "$CONFIG_DIR/nvim/" ./ -r
+cp "$CONFIG_DIR/ags/" ./ -r
 cp "$CONFIG_DIR/quickshell/" ./ -r
 cp "$CONFIG_DIR/waybar/" ./ -r
 cp "$CONFIG_DIR/wofi/" ./ -r

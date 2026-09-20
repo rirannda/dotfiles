@@ -1,5 +1,7 @@
+aylurs-gtk-shell-git
 brave-bin
 brave-origin-bin
+chatgpt-desktop
 claude-code
 cloudflare-warp-bin
 curseforge
@@ -10,6 +12,7 @@ fsearch
 grub-customizer
 grub-theme-asus-tuf
 hyprshot-git
+libastal-meta
 nerd-fonts-noto-sans-mono
 nomacs
 obsidian-bin

@@ -1,0 +1,620 @@
+/* AGS styles: plain GTK CSS, without Sass preprocessing. */
+
+.gtk-reset {
+  background-color: transparent;
+  background-image: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global */
+
+window {
+  background-color: transparent;
+  color: #f4f4f5;
+  font-family: "JetBrainsMono Nerd Font", "Noto Sans CJK JP";
+}
+
+/* Components */
+
+.bar {
+  min-height: 32px;
+  padding: 1px 6px;
+  font-size: 14px;
+  background-color: rgba(13, 15, 18, 0.76);
+  border-bottom: 1px solid #343943;
+}
+
+.bar-group {
+  min-height: 16px;
+}
+.right-group {
+  margin-left: 12px;
+}
+
+.bar-button,
+.media-button,
+.clock-button,
+.quick-button,
+.arch-button,
+.tray-button,
+.tray-more {
+  min-height: 19px;
+  min-width: 20px;
+  padding: 0 5px;
+  border-radius: 8px;
+  color: #d7d9df;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
+.bar-button:hover,
+.media-button:hover,
+.clock-button:hover,
+.quick-button:hover,
+.arch-button:hover,
+.tray-button:hover,
+.tray-more:hover {
+  background-color: #272c35;
+  color: #fff;
+}
+.arch-button {
+  color: #38bdf8;
+  font-size: 13px;
+  padding: 0 6px;
+}
+.clock-button {
+  padding: 0 10px;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: #1d2128;
+}
+.quick-button {
+  color: #c4b5fd;
+  background-color: #1d2128;
+}
+.media-button {
+  color: #cbd5e1;
+  font-size: 14px;
+}
+.active-window {
+  color: #a1a1aa;
+  font-size: 14px;
+  margin-left: 6px;
+}
+.discord {
+  color: #8b9dff;
+}
+
+.workspaces {
+  padding: 0 2px;
+}
+.workspace {
+  min-width: 10px;
+  min-height: 10px;
+  padding: 0;
+  margin: 5px 1px;
+  border-radius: 999px;
+  border: none;
+  box-shadow: none;
+  background-image: none;
+  background-color: #343943;
+  color: transparent;
+  font-size: 0;
+}
+.workspace.used {
+  background-color: #71717a;
+}
+.workspace.focused {
+  min-width: 22px;
+  min-height: 14px;
+  border-radius: 999px;
+  background-color: #8b5cf6;
+}
+.workspace:hover {
+  background-color: #a78bfa;
+}
+
+.notification-dot {
+  color: #ef4444;
+  font-size: 7px;
+  margin: -1px 0 0 0;
+}
+.tray-shell {
+  padding: 1px 3px;
+  border: 1px solid #343943;
+  border-radius: 10px;
+  background-color: #1d2128;
+}
+.tray-shell .tray-button,
+.tray-shell .tray-more {
+  padding: 0 6px;
+}
+
+.popup {
+  background-color: rgba(21, 24, 29, 0.86);
+  border: 1px solid #343943;
+  border-radius: 18px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.48);
+  color: #f4f4f5;
+}
+.popup:not(.chatgpt-popup) .panel-section,
+.popup:not(.chatgpt-popup) .metric-card,
+.popup:not(.chatgpt-popup) .notification-card,
+.popup:not(.chatgpt-popup) .dashboard-identity,
+.popup:not(.chatgpt-popup) .dashboard-hardware,
+.popup:not(.chatgpt-popup) .gauge-grid,
+.popup:not(.chatgpt-popup) .action-button,
+.popup:not(.chatgpt-popup) .setting-tile,
+.popup:not(.chatgpt-popup) .device-row,
+.popup:not(.chatgpt-popup) .tray-dropdown-item {
+  background-color: rgba(29, 33, 40, 0.82);
+}
+.chatgpt-popup {
+  background-color: #15181d;
+}
+.popup.dropdown {
+  border-top: 2px solid #8b5cf6;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.5);
+}
+
+.panel-header {
+  padding: 8px 18px 0px;
+  border-bottom: 1px solid #343943;
+}
+.panel-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+.panel-content {
+  padding: 14px;
+}
+.panel-scroll {
+  background: transparent;
+}
+.panel-scroll > viewport {
+  background: transparent;
+}
+.close-button,
+.mini-close {
+  min-width: 28px;
+  min-height: 28px;
+  border-radius: 9px;
+  border: none;
+  background: transparent;
+  color: #a1a1aa;
+  box-shadow: none;
+}
+.close-button:hover,
+.mini-close:hover {
+  background-color: #272c35;
+  color: #fff;
+}
+
+.panel-section {
+  padding: 12px;
+  border-radius: 13px;
+  background-color: #1d2128;
+}
+.section-title {
+  color: #71717a;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+}
+.metric-card {
+  padding: 12px;
+  border-radius: 13px;
+  background-color: #1d2128;
+}
+.metric-card progressbar trough,
+.panel-battery progressbar trough {
+  min-height: 6px;
+  border-radius: 999px;
+  background-color: #343943;
+}
+.metric-card progressbar progress,
+.panel-battery progressbar progress {
+  min-height: 6px;
+  border-radius: 999px;
+  background-color: #8b5cf6;
+}
+.info-row {
+  padding: 6px 2px;
+}
+
+.calendar-wrap {
+  padding: 12px;
+}
+calendar {
+  background: transparent;
+  border: none;
+  padding: 8px;
+}
+calendar:selected {
+  background-color: #8b5cf6;
+  color: white;
+  border-radius: 999px;
+}
+
+.media-content {
+  padding: 18px;
+}
+.media-cover-frame {
+  min-width: 125px;
+  min-height: 125px;
+  border-radius: 15px;
+  background-color: #272c35;
+}
+.media-cover-frame > viewport {
+  background-color: #272c35;
+}
+.media-cover {
+  background-color: #272c35;
+}
+.media-marquee {
+  font-family: monospace;
+}
+.media-control {
+  min-width: 15px;
+  min-height: 23px;
+  border-radius: 14px;
+  background: #272c35;
+  color: #f4f4f5;
+  border: none;
+  box-shadow: none;
+  font-size: 20px;
+}
+.media-control.primary {
+  background-color: #8b5cf6;
+}
+.media-control:hover {
+  background-color: #343943;
+}
+
+.notification-actions {
+  padding: 8px 14px 0;
+}
+.notification-card {
+  padding: 12px;
+  border-radius: 13px;
+  background-color: #1d2128;
+}
+.empty-state {
+  padding: 50px 10px;
+  color: #71717a;
+}
+.text-button {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: none;
+  background: #272c35;
+  color: #cbd5e1;
+}
+.text-button:hover {
+  background: #343943;
+  color: white;
+}
+.text-button.danger {
+  background-color: #7f1d1d;
+  color: #fecaca;
+}
+.battery-percent {
+  font-size: 44px;
+  font-weight: 800;
+}
+
+.action-button {
+  min-height: 48px;
+  padding: 10px 4px;
+  border-radius: 13px;
+  border: none;
+  background: #1d2128;
+  color: #d7d9df;
+  box-shadow: none;
+}
+.action-button:hover {
+  background-color: #272c35;
+  color: white;
+}
+.confirm-row {
+  padding: 10px;
+  border-radius: 12px;
+  background-color: #3f1d24;
+}
+.setting-tile,
+.profile-button,
+.device-row {
+  padding: 10px 12px;
+  min-height: 38px;
+  border-radius: 11px;
+  border: none;
+  box-shadow: none;
+  background: #272c35;
+  color: #d7d9df;
+}
+.setting-tile:hover,
+.profile-button:hover,
+.device-row:hover {
+  background-color: #343943;
+  color: white;
+}
+.setting-tile.active {
+  background-color: #5b21b6;
+  color: #fff;
+}
+.setting-tile.active-danger {
+  background-color: #7f1d1d;
+  color: #fecaca;
+}
+.icon-setting {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 0;
+  border-radius: 12px;
+  border: none;
+  box-shadow: none;
+  background-color: #272c35;
+  color: #d7d9df;
+  font-size: 19px;
+}
+.icon-setting:hover {
+  background-color: #343943;
+  color: white;
+}
+.icon-setting.active-danger {
+  background-color: #7f1d1d;
+  color: #fecaca;
+}
+.connectivity-power {
+  min-width: 42px;
+  min-height: 42px;
+  padding: 0;
+  border-radius: 11px;
+  border: none;
+  box-shadow: none;
+  background-color: #272c35;
+  color: #a1a1aa;
+}
+.connectivity-power:hover {
+  background-color: #343943;
+  color: white;
+}
+.connectivity-power.active {
+  background-color: #5b21b6;
+  color: white;
+}
+.device-list {
+  padding-top: 5px;
+}
+.device-row {
+  padding: 8px 10px;
+  background-color: #20242b;
+}
+.profile-button {
+  font-size: 11px;
+}
+.chatgpt-launch {
+  padding: 13px 14px;
+  border-radius: 13px;
+  border: 1px solid #6d28d9;
+  box-shadow: none;
+  background: #2e1065;
+  color: #ede9fe;
+}
+.chatgpt-launch:hover {
+  background: #4c1d95;
+}
+
+scale trough {
+  min-height: 6px;
+  border-radius: 999px;
+  background-color: #343943;
+}
+scale highlight {
+  min-height: 6px;
+  border-radius: 999px;
+  background-color: #8b5cf6;
+}
+scale slider {
+  min-width: 16px;
+  min-height: 16px;
+  border-radius: 999px;
+  background: #f4f4f5;
+  border: none;
+  box-shadow: none;
+}
+
+.launcher-search {
+  margin: 12px 14px 4px;
+  padding: 10px;
+  border-radius: 12px;
+  background-color: #1d2128;
+  color: #fff;
+  border: 1px solid #343943;
+}
+.launcher-row,
+.clipboard-row {
+  padding: 11px 13px;
+  border-radius: 11px;
+  border: none;
+  box-shadow: none;
+  background-color: #1d2128;
+  color: #e4e4e7;
+}
+.launcher-row:hover,
+.clipboard-row:hover {
+  background-color: #272c35;
+  color: white;
+}
+.cheatsheet-layout {
+  padding: 10px 12px 14px;
+  background: transparent;
+}
+.cheatsheet-layout separator {
+  min-width: 1px;
+  margin: 0 12px;
+  background-color: #343943;
+}
+.cheatsheet-sidebar {
+  min-width: 176px;
+  background: transparent;
+}
+.cheatsheet-sidebar-title {
+  padding: 4px 8px 7px;
+  color: #71717a;
+  font-size: 10px;
+  font-weight: 700;
+}
+.shortcut-category {
+  padding: 8px 10px;
+  border-radius: 9px;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  color: #a1a1aa;
+}
+.shortcut-category:hover {
+  background-color: #1d2128;
+  color: #f4f4f5;
+}
+.shortcut-category.active {
+  background-color: #27233a;
+  color: #c4b5fd;
+}
+.shortcut-category-count {
+  min-width: 22px;
+  color: #71717a;
+  font-size: 10px;
+}
+.shortcut-category.active .shortcut-category-count {
+  color: #a78bfa;
+}
+.cheatsheet-binds {
+  background: transparent;
+}
+.shortcut-row {
+  padding: 9px 11px;
+  border-radius: 9px;
+}
+.shortcut-row:hover {
+  background-color: #1d2128;
+}
+.shortcut-keys {
+  padding: 4px 8px;
+  border-radius: 7px;
+  background-color: #272c35;
+  color: #c4b5fd;
+  font-family: monospace;
+  font-weight: 700;
+}
+.tray-dropdown-item {
+  padding: 10px 11px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: none;
+  background-color: #1d2128;
+  color: #e4e4e7;
+}
+.tray-dropdown-item:hover {
+  background-color: #272c35;
+  color: white;
+}
+.wifi-password-row {
+  padding: 7px 0;
+}
+.wifi-password-row entry {
+  padding: 8px;
+  border-radius: 9px;
+  background-color: #15181d;
+  color: #fff;
+  border: 1px solid #343943;
+}
+.notification-toast {
+  min-width: 340px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid #343943;
+  background-color: rgba(29, 33, 40, 0.9);
+  color: #f4f4f5;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.42);
+}
+.notification-toast:hover {
+  background-color: #272c35;
+}
+
+.dashboard-content {
+  padding: 14px 16px 16px;
+}
+.dashboard-identity {
+  padding: 16px;
+  border-radius: 13px;
+  background-color: #1d2128;
+}
+.dashboard-avatar {
+  min-width: 78px;
+  min-height: 78px;
+  border: 2px solid #a78bfa;
+  border-radius: 999px;
+  color: #38bdf8;
+  font-size: 30px;
+}
+.dashboard-user {
+  color: #a78bfa;
+  font-size: 19px;
+  font-weight: 700;
+}
+.dashboard-hardware {
+  padding: 12px 14px;
+  border-radius: 11px;
+  background-color: #15181d;
+}
+.gauge-grid {
+  padding: 16px 10px 13px;
+  border-radius: 13px;
+  background-color: #1d2128;
+}
+.gauge-card {
+  padding: 2px 4px;
+}
+.gauge-value {
+  margin-top: 22px;
+}
+.gauge-name {
+  color: #c4b5fd;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 14px;
+}
+
+.text-primary {
+  color: #a78bfa;
+}
+.text-muted {
+  color: #a1a1aa;
+}
+.text-xs {
+  font-size: 10px;
+}
+.text-sm {
+  font-size: 12px;
+}
+.text-xl {
+  font-size: 18px;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.font-bold {
+  font-weight: 700;
+}

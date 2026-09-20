@@ -18,21 +18,21 @@ hl.bind(
 )
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + Y", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + space", hl.dsp.exec_cmd(menu))
+-- hl.bind(mainMod .. " + space", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = 0, action = "toggle" }))
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 
 -- QuickShell widgets
-hl.bind(mainMod .. " + SHIFT + space", hl.dsp.exec_cmd("socat - UNIX-CONNECT:/tmp/quickshell_launcher"))
-hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("socat - UNIX-CONNECT:/tmp/quickshell_clipboard"))
-hl.bind(mainMod .. " + K", hl.dsp.exec_cmd("socat - UNIX-CONNECT:/tmp/quickshell_keybinds"))
-hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("socat - UNIX-CONNECT:/tmp/quickshell_dashboard"))
+-- hl.bind(mainMod .. " + SHIFT + space", hl.dsp.exec_cmd("socat - UNIX-CONNECT:/tmp/quickshell_launcher"))
+-- hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("socat - UNIX-CONNECT:/tmp/quickshell_clipboard"))
+-- hl.bind(mainMod .. " + K", hl.dsp.exec_cmd("socat - UNIX-CONNECT:/tmp/quickshell_keybinds"))
+-- hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("socat - UNIX-CONNECT:/tmp/quickshell_dashboard"))
 
 -- Screenshot
-hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("~/.config/quickshell/Scripts/screenshot.sh full"))
-hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd("~/.config/quickshell/Scripts/screenshot.sh window"))
-hl.bind(mainMod .. " + CTRL +  Print", hl.dsp.exec_cmd("~/.config/quickshell/Scripts/screenshot.sh area"))
+-- hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("~/.config/quickshell/Scripts/screenshot.sh full"))
+-- hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd("~/.config/quickshell/Scripts/screenshot.sh window"))
+-- hl.bind(mainMod .. " + CTRL +  Print", hl.dsp.exec_cmd("~/.config/quickshell/Scripts/screenshot.sh area"))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
@@ -102,4 +102,4 @@ hl.bind("XF86Calculator", hl.dsp.exec_cmd("deepin-calculator"))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("rog-control-center"))
 
 -- Google Tasks
-hl.bind(mainMod .. " + T", hl.dsp.workspace.toggle_special("g_tasks"))
+hl.bind(mainMod .. " + U", hl.dsp.workspace.toggle_special("g_tasks"))
