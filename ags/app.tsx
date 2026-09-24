@@ -5,7 +5,7 @@ import { Panels } from "./widgets/panels"
 import { PanelName, togglePanel } from "./lib/windows"
 
 const commands = new Set<PanelName>([
-  "dashboard", "calendar", "media", "tray", "notifications", "battery", "quicksettings",
+  "dashboard", "calendar", "media", "notifications", "battery", "quicksettings",
   "chatgpt", "launcher", "clipboard", "cheatsheet",
 ])
 

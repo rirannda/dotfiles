@@ -6,11 +6,9 @@ import GLib from "gi://GLib?version=2.0";
 import WebKit from "gi://WebKit?version=6.0";
 import Notifd from "gi://AstalNotifd";
 import Hyprland from "gi://AstalHyprland";
-import Tray from "gi://AstalTray";
 import { ActionButton, Gauge, Section } from "./common";
 import { closePanels, openPanel, PanelName } from "../lib/windows";
 import { clamp, fire, fireSh, sh } from "../lib/shell";
-import { addTrayRightClick } from "../lib/tray";
 import {
   audioState,
   batteryState,
@@ -348,66 +346,6 @@ function MediaPanel({
             <label label="󰒭" />
           </button>
         </box>
-      </box>
-    </Popup>
-  );
-}
-
-function TrayPanel({
-  monitor,
-  gdkmonitor,
-}: {
-  monitor: number;
-  gdkmonitor: any;
-}) {
-  const tray = Tray.get_default();
-  const read = () =>
-    (tray.get_items() as any[])
-      .filter((item) => !/discord/i.test(`${item.id} ${item.title}`))
-      .slice(3);
-  const [items, setItems] = createState(read());
-  const refresh = () => setItems(read());
-  tray.connect("item-added", refresh);
-  tray.connect("item-removed", refresh);
-  return (
-    <Popup
-      name="tray"
-      monitor={monitor}
-      gdkmonitor={gdkmonitor}
-      width={320}
-      attached
-    >
-      <box
-        orientation={Gtk.Orientation.VERTICAL}
-        spacing={6}
-        class="panel-content tray-dropdown-list"
-      >
-        <label
-          visible={items.as((all) => all.length === 0)}
-          label="No other tray items."
-          class="empty-state"
-        />
-        <For each={items} id={(item: any) => item.id}>
-          {(item: any) => (
-            <button
-              class="gtk-reset tray-dropdown-item"
-              onClicked={() => item.activate(0, 0)}
-              $={(button) => addTrayRightClick(button, item)}
-            >
-              <box spacing={10}>
-                <image gicon={item.gicon} pixelSize={20} />
-                <label
-                  label={item.title || item.id}
-                  xalign={0}
-                  hexpand
-                  maxWidthChars={24}
-                  ellipsize={3}
-                />
-                <label label="󰁔" />
-              </box>
-            </button>
-          )}
-        </For>
       </box>
     </Popup>
   );
@@ -1336,7 +1274,6 @@ export function Panels(monitor: number, gdkmonitor: any) {
   Dashboard({ monitor, gdkmonitor });
   CalendarPanel({ monitor, gdkmonitor });
   MediaPanel({ monitor, gdkmonitor });
-  TrayPanel({ monitor, gdkmonitor });
   NotificationsPanel({ monitor, gdkmonitor });
   BatteryPanel({ monitor, gdkmonitor });
   QuickSettings({ monitor, gdkmonitor });

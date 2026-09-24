@@ -20,16 +20,3 @@ export function openTrayMenu(button: Gtk.Widget, item: any) {
   popover.connect("closed", () => popover.unparent())
   popover.popup()
 }
-
-/** Capture button 3 before Gtk.Button can consume it as a normal click. */
-export function addTrayRightClick(button: Gtk.Widget, item: any) {
-  const gesture = new Gtk.GestureClick({
-    button: 3,
-    propagationPhase: Gtk.PropagationPhase.CAPTURE,
-  })
-  gesture.connect("pressed", () => {
-    gesture.set_state(Gtk.EventSequenceState.CLAIMED)
-    openTrayMenu(button, item)
-  })
-  button.add_controller(gesture)
-}

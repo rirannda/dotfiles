@@ -4,7 +4,7 @@ import { createBinding, createState, For } from "ags";
 import Tray from "gi://AstalTray";
 import Notifd from "gi://AstalNotifd";
 import { fire } from "../lib/shell";
-import { addTrayRightClick, openTrayMenu } from "../lib/tray";
+import { openTrayMenu } from "../lib/tray";
 import {
   registerPanelAnchor,
   togglePanel,
@@ -50,48 +50,61 @@ function Workspaces() {
 }
 
 function TrayButton({ item }: { item: any }) {
+  const initialize = (button: Gtk.MenuButton) => {
+    const syncMenu = () => {
+      button.menuModel = item.menuModel;
+      button.insert_action_group("dbusmenu", item.actionGroup);
+    };
+    syncMenu();
+    item.connect("notify::menu-model", syncMenu);
+    item.connect("notify::action-group", syncMenu);
+
+    const primary = new Gtk.GestureClick({
+      button: 1,
+      propagationPhase: Gtk.PropagationPhase.CAPTURE,
+    });
+    primary.connect("pressed", (gesture, _press, x, y) => {
+      gesture.set_state(Gtk.EventSequenceState.CLAIMED);
+      item.activate(Math.round(x), Math.round(y));
+    });
+    button.add_controller(primary);
+
+    const secondary = new Gtk.GestureClick({
+      button: 3,
+      propagationPhase: Gtk.PropagationPhase.CAPTURE,
+    });
+    secondary.connect("pressed", (gesture) => {
+      gesture.set_state(Gtk.EventSequenceState.CLAIMED);
+      item.about_to_show();
+      button.popup();
+    });
+    button.add_controller(secondary);
+  };
+
   return (
-    <button
+    <menubutton
       class="gtk-reset tray-button"
-      tooltipText={item.tooltipMarkup || item.title || item.id}
-      onClicked={() => item.activate(0, 0)}
-      $={(button) => addTrayRightClick(button, item)}
+      tooltipMarkup={createBinding(item, "tooltipMarkup")}
+      $={(button) => initialize(button)}
     >
-      <image gicon={item.gicon} pixelSize={16} />
-    </button>
+      <image gicon={createBinding(item, "gicon")} pixelSize={16} />
+    </menubutton>
   );
 }
 
-function SystemTray({ monitor }: { monitor: number }) {
+function SystemTray() {
   const tray = Tray.get_default();
-  const get = () =>
-    (tray.get_items() as any[]).filter(
+  const items = createBinding(tray, "items").as((all) =>
+    (all as any[]).filter(
       (item) => !/discord/i.test(`${item.id} ${item.title}`),
-    );
-  const [items, setItems] = createState(get());
-  const [expanded, setExpanded] = createState(false);
-  tray.connect("item-added", () => setItems(get()));
-  tray.connect("item-removed", () => setItems(get()));
-  app.connect("window-toggled", (_, window) => {
-    if (window.name === `tray-${monitor}`) setExpanded(window.visible);
-  });
+    ),
+  );
 
   return (
     <box spacing={2} class="tray tray-shell">
-      <For
-        each={items.as((all) => all.slice(0, 3))}
-        id={(item: any) => item.id}
-      >
+      <For each={items} id={(item: any) => item.id}>
         {(item) => <TrayButton item={item} />}
       </For>
-      <button
-        visible={items.as((all) => all.length > 3)}
-        class="gtk-reset tray-more"
-        $={(self) => registerPanelAnchor("tray", monitor, self, 320)}
-        onClicked={(self) => togglePanelBelow("tray", monitor, self, 320)}
-      >
-        <label label={expanded.as((value) => (value ? "" : ""))} />
-      </button>
     </box>
   );
 }
@@ -203,7 +216,7 @@ export function Bar(monitor: number, gdkmonitor: any) {
           ellipsize={3}
         />
       </button>
-      <SystemTray monitor={monitor} />
+      <SystemTray />
       <DiscordTray />
       <button
         class="gtk-reset bar-button"

@@ -6,7 +6,6 @@ export type PanelName =
   | "dashboard"
   | "calendar"
   | "media"
-  | "tray"
   | "notifications"
   | "battery"
   | "quicksettings"
@@ -16,12 +15,12 @@ export type PanelName =
   | "cheatsheet"
 
 const panels: PanelName[] = [
-  "dashboard", "calendar", "media", "tray", "notifications", "battery",
+  "dashboard", "calendar", "media", "notifications", "battery",
   "quicksettings", "chatgpt", "launcher", "clipboard", "cheatsheet",
 ]
 
 const dropdownPanels: PanelName[] = [
-  "dashboard", "calendar", "media", "tray", "notifications", "battery",
+  "dashboard", "calendar", "media", "notifications", "battery",
 ]
 const utilityPanels: PanelName[] = ["launcher", "clipboard", "cheatsheet"]
 const persistentPanels = new Set<PanelName>(["quicksettings", "chatgpt"])
