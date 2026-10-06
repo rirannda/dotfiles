@@ -1473,17 +1473,10 @@ export default function CalendarWidget(
   navRow.append(subBtn);
   root.append(navRow);
 
-  // Day-of-week header
-  const dowRow = new Gtk.Box({ cssClasses: ["cal-dow-row"] });
-  DAYS.forEach((d) =>
-    dowRow.append(
-      new Gtk.Label({ label: d, hexpand: true, cssClasses: ["cal-dow"] }),
-    ),
-  );
-  root.append(dowRow);
-
-  // Grid
+  // Weekday headings and dates share the same seven expanding columns.
   const grid = new Gtk.Grid({
+    columnHomogeneous: true,
+    hexpand: true,
     columnSpacing: 2,
     rowSpacing: 2,
     cssClasses: ["cal-grid"],
@@ -1544,6 +1537,13 @@ export default function CalendarWidget(
       ch = n;
     }
 
+    DAYS.forEach((day, col) => {
+      grid.attach(
+        new Gtk.Label({ label: day, hexpand: true, cssClasses: ["cal-dow"] }),
+        col, 0, 1, 1,
+      );
+    });
+
     const days = daysInMonth(y, m),
       offset = firstWeekdayMon(y, m);
     const events = calendarEvents.get(),
@@ -1552,11 +1552,11 @@ export default function CalendarWidget(
     for (let i = 0; i < offset; i++) {
       const b = new Gtk.Box();
       b.add_css_class("cal-cell-blank");
-      grid.attach(b, i, 0, 1, 1);
+      grid.attach(b, i, 1, 1, 1);
     }
 
     let col = offset,
-      row = 0;
+      row = 1;
     for (let dd = 1; dd <= days; dd++) {
       const ds = toDateStr(y, m, dd);
       const dayEvs = getEventsForDate(events, ds);

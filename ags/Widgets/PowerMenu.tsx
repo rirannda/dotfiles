@@ -124,6 +124,18 @@ export default function PowerMenu({ gdkmonitor }: { gdkmonitor: Gdk.Monitor }) {
               }}
             />
             <PowerButton
+              label="Log out"
+              icon="system-log-out-symbolic"
+              className="logout"
+              action={() => {
+                hide();
+                Gio.Subprocess.new(
+                  ["hyprctl", "eval", "hl.dispatch(hl.dsp.exit())"],
+                  Gio.SubprocessFlags.NONE,
+                );
+              }}
+            />
+            <PowerButton
               label="Hibernate"
               icon="media-playback-pause-symbolic"
               className="hibernate"

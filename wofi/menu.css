@@ -1,0 +1,109 @@
+/* Wofi uses GTK3 named colors; Matugen keeps this palette aligned with AGS. */
+@import url("colors.css");
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans Mono CJK JP";
+    font-size: 14px;
+    outline-style: none;
+}
+
+window {
+    background-color: @wofi_background;
+    color: @wofi_on_surface;
+    border: 1px solid @wofi_outline_variant;
+    border-radius: 16px;
+}
+
+#outer-box {
+    margin: 0;
+    padding: 12px;
+    border: none;
+    background-color: transparent;
+}
+
+#input {
+    margin: 0 0 12px;
+    padding: 10px 12px;
+    min-height: 24px;
+    background-color: @wofi_surface_container;
+    color: @wofi_on_surface;
+    border: 1px solid @wofi_outline_variant;
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+#input:focus {
+    border-color: @wofi_primary;
+}
+
+#input image {
+    color: @wofi_primary;
+}
+
+#input selection {
+    background-color: @wofi_primary;
+    color: @wofi_on_primary;
+}
+
+#inner-box,
+#scroll {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+#entry {
+    margin: 2px 0;
+    padding: 8px 10px;
+    min-height: 40px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: transparent;
+    color: @wofi_on_surface;
+}
+
+#entry:hover {
+    background-color: @wofi_surface_container_high;
+    border-color: @wofi_outline_variant;
+}
+
+#entry:selected {
+    background-color: @wofi_primary_container;
+    border-color: @wofi_primary;
+    color: @wofi_on_primary_container;
+}
+
+#text {
+    margin: 0;
+    color: @wofi_on_surface;
+    font-weight: 400;
+}
+
+#entry:selected #text,
+#text:selected {
+    color: @wofi_on_primary_container;
+}
+
+#img {
+    margin-right: 12px;
+    background-color: transparent;
+}
+
+scrollbar,
+scrollbar trough {
+    border: none;
+    background-color: transparent;
+}
+
+scrollbar slider {
+    min-width: 4px;
+    min-height: 24px;
+    border: none;
+    border-radius: 8px;
+    background-color: @wofi_outline;
+}
+
+scrollbar slider:hover {
+    background-color: @wofi_primary;
+}

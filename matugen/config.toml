@@ -1,7 +1,7 @@
 [config]
 version_check = false
 
-# All paths are relative to this config file. Keep ags, matugen and hypr as sibling folders. GTK uses its standard dark theme.
+# All paths are relative to this config file. Keep ags, matugen, hypr and wofi as sibling folders. GTK applications use their standard dark theme.
 [templates.ags]
 input_path = "templates/colors.css"
 output_path = "../ags/colors.css"
@@ -13,3 +13,8 @@ output_path = "../hypr/colors/colors.lua"
 [templates.hyprlock]
 input_path = "templates/hyprland.conf"
 output_path = "../hypr/colors/colors.conf"
+
+# Wofi-only GTK3 colors; does not override the desktop GTK theme.
+[templates.wofi]
+input_path = "templates/wofi.css"
+output_path = "../wofi/colors.css"

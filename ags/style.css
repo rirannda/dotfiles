@@ -1347,13 +1347,16 @@ popover listview row modelbutton {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-.powermenu-card.lock:hover {
+.powermenu-card.lock:hover,
+.powermenu-card.logout:hover {
   background-color: var(--primary_container);
   border-color: var(--primary);
 }
 
 .powermenu-card.lock:hover image,
-.powermenu-card.lock:hover label {
+.powermenu-card.lock:hover label,
+.powermenu-card.logout:hover image,
+.powermenu-card.logout:hover label {
   color: var(--on_primary_container);
 }
 
@@ -1631,10 +1634,6 @@ popover listview row modelbutton {
 
 .cal-today-btn {
   color: var(--on_surface_variant);
-}
-
-.cal-dow-row {
-  margin-bottom: 2px;
 }
 
 .cal-dow {

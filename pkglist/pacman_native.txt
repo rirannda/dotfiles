@@ -70,7 +70,6 @@ konsole
 lazygit
 less
 lib32-nvidia-utils
-libgudev
 libreoffice-still-ja
 libvips
 linux
@@ -113,6 +112,7 @@ python-bleak
 python-pip
 qt5-wayland
 qt6-languageserver
+quickshell
 reflector
 rog-control-center
 rsync
