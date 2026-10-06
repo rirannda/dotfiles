@@ -1,2 +1,3 @@
-/* Apply only GTK3's built-in Adwaita dark theme, including backdrop states. */
-@import url("resource:///org/gtk/libgtk/theme/Adwaita/gtk-dark.css");
+/* Standard dark theme is selected in settings.ini.
+ * Keep global overrides empty so applications such as Wofi can use their own CSS.
+ */

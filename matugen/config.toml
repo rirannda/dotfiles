@@ -16,5 +16,5 @@ output_path = "../hypr/colors/colors.conf"
 
 # Wofi-only GTK3 colors; does not override the desktop GTK theme.
 [templates.wofi]
-input_path = "templates/wofi.css"
-output_path = "../wofi/colors.css"
+input_path = "templates/wofi.colors"
+output_path = "../wofi/colors"

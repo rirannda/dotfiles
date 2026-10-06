@@ -1,5 +1,15 @@
-/* Wofi uses GTK3 named colors; Matugen keeps this palette aligned with AGS. */
-@import url("colors.css");
+/* Palette order: background, on_surface, surface_container, surface_container_high, outline_variant, outline, primary, on_primary, primary_container, on_primary_container. */
+/* Wofi replaces its color macros before GTK3 parses this stylesheet. */
+@define-color wofi_background --wofi-color0;
+@define-color wofi_on_surface --wofi-color1;
+@define-color wofi_surface_container --wofi-color2;
+@define-color wofi_surface_container_high --wofi-color3;
+@define-color wofi_outline_variant --wofi-color4;
+@define-color wofi_outline --wofi-color5;
+@define-color wofi_primary --wofi-color6;
+@define-color wofi_on_primary --wofi-color7;
+@define-color wofi_primary_container --wofi-color8;
+@define-color wofi_on_primary_container --wofi-color9;
 
 * {
     font-family: "JetBrainsMono Nerd Font", "Noto Sans Mono CJK JP";
