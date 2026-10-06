@@ -7,7 +7,7 @@ export default function FocusedWindow() {
   const hypr = Hyprland.get_default();
   const label = new Gtk.Label({
     ellipsize: Pango.EllipsizeMode.END,
-    max_width_chars: 28,
+    max_width_chars: 34,
   });
   const box = new Gtk.Box({
     spacing: 6,
@@ -21,7 +21,7 @@ export default function FocusedWindow() {
   function update() {
     const name = client?.get_class() || client?.get_initial_class() || "Window";
     const title = client?.get_title() || "";
-    label.label = client ? `${name}${title ? ` · ${title}` : ""}` : "Desktop";
+    label.label = client ? `${title ? `${title} · ` : ""}${name}` : "Desktop";
     box.tooltip_text = client
       ? `${name}${title ? `\n${title}` : ""}\nWorkspace ${client.get_workspace()?.id ?? "—"} · PID ${client.get_pid()}`
       : "No focused window";
