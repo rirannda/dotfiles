@@ -1,24 +1,21 @@
-#!/bin/zsh
-# dotfilesの設定を最新の設定(動いている設定)に更新するスクリプト
-
-set -e
-
-CONFIG_DIR="$HOME/.config"
-
-cp ~/.zprofile ./
-cp ~/.zshrc ./
-cp "$CONFIG_DIR/starship.toml" ./starship/
-cp "$CONFIG_DIR/hypr/" ./ -r
-cp "$CONFIG_DIR/kitty/" ./ -r
-cp "$CONFIG_DIR/nvim/" ./ -r
-cp "$CONFIG_DIR/ags/" ./ -r
-cp "$CONFIG_DIR/quickshell/" ./ -r
-cp "$CONFIG_DIR/waybar/" ./ -r
-cp "$CONFIG_DIR/wofi/" ./ -r
-cp "$CONFIG_DIR/wlogout/" ./ -r
-cp "$CONFIG_DIR/fcitx5/" ./ -r
-cp "$CONFIG_DIR/zed/" ./ -r
-
-pacman -Qqen > ./pkglist/pacman_native.txt
-
-pacman -Qqem > ./pkglist/pacman_aur.txt
+#!/usr/bin/env bash
+# Save live settings to this repository, regardless of the current directory.
+set -euo pipefail
+source "$(dirname -- "${BASH_SOURCE[0]}")/config-common.sh"
+replace_entry "$HOME/.zprofile" "$DOTFILES_DIR/.zprofile" repository/.zprofile
+replace_entry "$HOME/.zshrc" "$DOTFILES_DIR/.zshrc" repository/.zshrc
+replace_entry "$CONFIG_DIR/starship.toml" "$DOTFILES_DIR/starship/starship.toml" repository/starship/starship.toml
+for name in "${CONFIG_NAMES[@]}"; do
+  replace_entry "$CONFIG_DIR/$name" "$DOTFILES_DIR/$name" "repository/$name"
+done
+if command -v pacman >/dev/null; then
+  mkdir -p -- "$DOTFILES_DIR/pkglist"
+  staging="$(mktemp -d "$DOTFILES_DIR/pkglist/.packages.XXXXXX")"
+  pacman -Qqen > "$staging/pacman_native.txt"
+  pacman -Qqem > "$staging/pacman_aur.txt"
+  replace_entry "$staging/pacman_native.txt" "$DOTFILES_DIR/pkglist/pacman_native.txt" repository/pkglist/pacman_native.txt
+  replace_entry "$staging/pacman_aur.txt" "$DOTFILES_DIR/pkglist/pacman_aur.txt" repository/pkglist/pacman_aur.txt
+  rm -- "$staging/pacman_native.txt" "$staging/pacman_aur.txt"
+  rmdir -- "$staging"
+fi
+printf 'Backup: %s\n' "$BACKUP_DIR"

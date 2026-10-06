@@ -1,0 +1,2 @@
+/* Apply only GTK3's built-in Adwaita dark theme, including backdrop states. */
+@import url("resource:///org/gtk/libgtk/theme/Adwaita/gtk-dark.css");

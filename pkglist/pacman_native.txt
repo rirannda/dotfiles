@@ -17,6 +17,7 @@ bluez-utils
 brightnessctl
 btop
 bun
+chatgpt-bin
 cliphist
 cpupower
 cuda
@@ -69,12 +70,14 @@ konsole
 lazygit
 less
 lib32-nvidia-utils
+libgudev
 libreoffice-still-ja
 libvips
 linux
 linux-firmware
 lld
 man-db
+matugen
 mesa
 mesa-utils
 mokutil
@@ -95,6 +98,7 @@ nvidia-settings
 nvidia-utils
 obs-studio
 onefetch
+openai-codex
 os-prober
 otf-ipaexfont
 otf-ipafont
@@ -109,7 +113,6 @@ python-bleak
 python-pip
 qt5-wayland
 qt6-languageserver
-quickshell
 reflector
 rog-control-center
 rsync
@@ -159,6 +162,10 @@ waylock
 webkit2gtk-4.1
 wev
 wget
+wine
+wine-gecko
+wine-mono
+winetricks
 wireplumber
 wofi
 wpa_supplicant

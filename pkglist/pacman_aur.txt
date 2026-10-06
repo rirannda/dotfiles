@@ -1,7 +1,6 @@
 aylurs-gtk-shell-git
 brave-bin
 brave-origin-bin
-chatgpt-desktop
 claude-code
 cloudflare-warp-bin
 curseforge
@@ -16,7 +15,6 @@ libastal-meta
 nerd-fonts-noto-sans-mono
 nomacs
 obsidian-bin
-openai-codex-bin
 opentabletdriver
 python312
 python313

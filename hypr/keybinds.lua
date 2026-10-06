@@ -12,10 +12,6 @@ local menu = "wofi"
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
-hl.bind(
-	mainMod .. " + M",
-	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
-)
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + Y", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + space", hl.dsp.exec_cmd(menu))
@@ -23,16 +19,7 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = 0, action = "toggle" }))
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 
--- QuickShell widgets
--- hl.bind(mainMod .. " + SHIFT + space", hl.dsp.exec_cmd("socat - UNIX-CONNECT:/tmp/quickshell_launcher"))
--- hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("socat - UNIX-CONNECT:/tmp/quickshell_clipboard"))
--- hl.bind(mainMod .. " + K", hl.dsp.exec_cmd("socat - UNIX-CONNECT:/tmp/quickshell_keybinds"))
--- hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("socat - UNIX-CONNECT:/tmp/quickshell_dashboard"))
-
 -- Screenshot
--- hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("~/.config/quickshell/Scripts/screenshot.sh full"))
--- hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd("~/.config/quickshell/Scripts/screenshot.sh window"))
--- hl.bind(mainMod .. " + CTRL +  Print", hl.dsp.exec_cmd("~/.config/quickshell/Scripts/screenshot.sh area"))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
@@ -61,11 +48,11 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
-hl.bind(
-	"XF86AudioRaiseVolume",
-	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
-	{ locked = true, repeating = true }
-)
+-- hl.bind(
+-- "XF86AudioRaiseVolume",
+-- hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+-- { locked = true, repeating = true }
+-- )
 hl.bind(
 	"XF86AudioLowerVolume",
 	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
@@ -100,6 +87,3 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("discord"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("kitty nvim"))
 hl.bind("XF86Calculator", hl.dsp.exec_cmd("deepin-calculator"))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("rog-control-center"))
-
--- Google Tasks
-hl.bind(mainMod .. " + U", hl.dsp.workspace.toggle_special("g_tasks"))

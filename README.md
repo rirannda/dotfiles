@@ -1,33 +1,60 @@
-# My Arch Linux Dotfiles
+# Arch Linux dotfiles
 
-My personal dotfiles for an Arch Linux setup featuring Hyprland (Wayland), Quickshell, and fully automated setup scripts.
+Hyprland with AGS (GTK4), Matugen and standard dark GTK themes.
+Matugen generates colors for AGS, Hyprland and hyprlock only.
+The AGS configuration includes the bar, quick settings, clipboard, calendar,
+notifications, music controls and system usage panel.
 
-## Installation
+## Apply existing files
 
-**WARNING:** Run this script on a fresh Arch Linux installation at your own risk. Review the scripts before executing.
+```bash
+./scripts/apply-config.sh
+```
 
-1. **Clone the repository:**
+This copies the configuration folders and shell files into your home directory.
+It backs up replaced entries under `${XDG_STATE_HOME:-$HOME/.local/state}/dotfiles-backups/`.
+It replaces directories instead of merging old AGS files and keeps symlink targets intact.
+Edit files in this repository, then apply all managed `.config` settings with:
 
-    ```zsh
-      git clone https://github.com/gorirarirannda/dotfiles.git ~/dotfiles
-      cd ~/dotfiles
-    ```
+```bash
+./scripts/apply-config.sh --config-only
+```
 
-2. **Run the basic setup script:**
-    This will install required packages (via yay), copy configurations to `~/.config`, and configure GRUB / SDDM.
+This includes Starship and leaves the home shell files alone.
+For just the AGS and theme configuration:
 
-    ```zsh
-    ./scripts/setup.sh
-    ```
+```bash
+./scripts/apply-config.sh ags matugen hypr gtk-3.0 gtk-4.0
+hyprctl reload
+```
 
-3. **Install Fcitx5-Mozc with UT Dictionary (Optional but Recommended):**
-    This script downloads the UT dictionary, merges it, and compiles `fcitx5-mozc` from the AUR. **This process will take some time.**
+Restart AGS with Super+Ctrl+R after copying. AGS is started automatically on the
+next Hyprland login. Super+M opens music; Super+Shift+M has no binding.
 
-    ```zsh
-    ./scripts/setup_mozc-ut.sh
-    ```
+## Save current files
 
-## 🛠️ Post-Installation
+```bash
+./scripts/copy.sh
+```
 
-* Reboot the system to apply GRUB, SDDM, and Wayland configurations.
-* Log in to the Hyprland session via SDDM.
+Use this only when you intend to replace repository files with live settings.
+This saves live settings into this repository and records installed explicit
+packages in `pkglist/`. It works from any current directory and includes
+AGS, Matugen, GTK3 and GTK4. It does not copy Quickshell.
+
+## Fresh Arch Linux setup
+
+Review `./scripts/setup.sh` before running it. It installs packages from
+`pkglist/`, applies configurations, changes the login shell and updates
+GRUB and SDDM. Configuration copying uses `apply-config.sh` without sudo.
+
+```bash
+./scripts/setup.sh
+# Optional Mozc UT dictionary:
+./scripts/setup_mozc-ut.sh
+```
+
+Core packages: aylurs-gtk-shell-git, libastal-meta, GTK4, matugen, awww,
+libgudev, cliphist and wl-clipboard. Music players must support MPRIS.
+Keep `ags`, `matugen`, `hypr`, `gtk-3.0` and `gtk-4.0` as sibling directories.
+AGS resolves configuration paths from its own launch script.

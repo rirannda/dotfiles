@@ -1,8 +1,9 @@
-#!/bin/zsh
-set -e
+#!/usr/bin/env bash
+set -euo pipefail
 
-DOTFILES_DIR="$(cd "$(dirname "${zsh_SOURCE[0]}")" && pwd)"
-CONFIG_DIR="$HOME/.config"
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES_DIR="$(cd -- "$SCRIPT_DIR/.." && pwd)"
+CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}"
 
 echo "========================================"
 echo "  Dotfiles Setup Script (Arch Linux)"
@@ -22,49 +23,32 @@ fi
 
 # 2. Restore pacman & AUR packages
 echo "==> Restoring pacman packages..."
-if [ -f "$DOTFILES_DIR/pacman_native.txt" ]; then
-  yay -S --needed --noconfirm - <"$DOTFILES_DIR/pacman_native.txt"
+if [ -f "$DOTFILES_DIR/pkglist/pacman_native.txt" ]; then
+  yay -S --needed --noconfirm - <"$DOTFILES_DIR/pkglist/pacman_native.txt"
 else
   echo "Warning: pacman_native.txt not found. Skipping."
 fi
 
 echo "==> Restoring AUR packages..."
-if [ -f "$DOTFILES_DIR/pacman_aur.txt" ]; then
-  yay -S --needed --noconfirm - <"$DOTFILES_DIR/pacman_aur.txt"
+if [ -f "$DOTFILES_DIR/pkglist/pacman_aur.txt" ]; then
+  yay -S --needed --noconfirm - <"$DOTFILES_DIR/pkglist/pacman_aur.txt"
 else
   echo "Warning: pacman_aur.txt not found. Skipping."
 fi
 
 # 3. Copy configuration files
 echo "==> Copying configuration files..."
-mkdir -p "$CONFIG_DIR"
-
-echo "Copying .zprofile to $HOME/"
-cp "$DOTFILES_DIR/.zprofile" "$HOME/"
-
-echo "Copying .zshrc to $HOME/"
-cp "$DOTFILES_DIR/.zshrc" "$HOME/"
-source "$HOME/.zshrc"
-
-echo "Copying starship to $CONFIG_DIR/"
-cp "$DOTFILES_DIR/starship/starship.toml" "$CONFIG_DIR/"
-
-for app in hypr kitty nvim quickshell ags waybar wofi wlogout zed ; do
-  if [ -d "$DOTFILES_DIR/$app" ]; then
-    echo "Copying $app to $CONFIG_DIR/"
-    sudo rm -rf "$CONFIG_DIR/$app"
-    sudo cp -r "$DOTFILES_DIR/$app" "$CONFIG_DIR/"
-  fi
-done
-
-echo "Reloading Hyprland"
-hyprctl reload
+"$SCRIPT_DIR/apply-config.sh"
+if command -v hyprctl >/dev/null && [[ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]]; then
+  hyprctl reload
+  printf 'Restart AGS with Super+Ctrl+R to load the copied files.\n'
+fi
 
 # ---------------------------------------------------
 # 4. Set default shell to Zsh
 # ---------------------------------------------------
 echo "==> Changing default shell to Zsh..."
-if [ "$SHELL" != "/bin/zsh" ]; then
+if [ "${SHELL:-}" != "/bin/zsh" ]; then
     chsh -s /bin/zsh
 fi
 
@@ -109,5 +93,5 @@ echo "==> System configuration updated successfully."
 
 echo "========================================"
 echo "Done! Basic setup is complete."
-echo "Note: Please run build_mozc_ut.sh separately to install fcitx5-mozc with UT dictionary."
+echo "Note: Please run scripts/setup_mozc-ut.sh separately to install fcitx5-mozc with UT dictionary."
 echo "========================================"

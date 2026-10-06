@@ -73,19 +73,14 @@ local menu = "wofi"
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function()
-	hl.exec_cmd("/usr/bin/gnome-keyring-daemon --start --components=secrets")
-	hl.exec_cmd("~/.local/bin/restart-portal.sh")
+	hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
+	hl.exec_cmd("systemctl --user restart xdg-desktop-portal-hyprland.service xdg-desktop-portal.service")
 	hl.exec_cmd("nm-applet")
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
 	hl.exec_cmd("wl-paste --type image --watch cliphist store")
-	hl.exec_cmd("awww-daemon")
-	-- hl.exec_cmd("quickshell")
 	hl.exec_cmd("fcitx5-remote -r")
 	hl.exec_cmd("fcitx5 -d --replace")
 	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-	hl.exec_cmd(
-		'brave-origin --profile-directory="Profile 1" --app="https://tasks.google.com/embed/list/~default" --class="google-tasks-pwa"'
-	)
 end)
 
 -------------------------------
@@ -323,16 +318,6 @@ hl.window_rule({
 	},
 
 	no_focus = true,
-})
-
--- Google tasks
-hl.window_rule({
-	name = "GoogleTask",
-	match = { class = "^brave-tasks.*" },
-	float = true,
-	size = "400 600",
-	center = true,
-	workspace = "special:g_tasks silent",
 })
 
 -- Layer rules also return a handle.
